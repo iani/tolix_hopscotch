@@ -41,7 +41,7 @@ T {
 						\this.changed(\type, element.asSymbol, j, k);
 						type do: _.(element, j, k);
 					};
-					pace.wait;
+					pace.next.wait;
 				}
 			};
 		})
@@ -139,7 +139,7 @@ T {
 		this.new(\default).tax (name, func);
 	}
 	tax { | name, func |
-		vector [name] = this.makePlayFunc (func);
+		type [name] = this.makePlayFunc (func);
 	}	
 
 }
