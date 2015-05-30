@@ -3,7 +3,7 @@ T {
 	classvar <data, <groupedData, <types;
 	var <name;
 	var <pace = 0.1;
-	var <vector, <type;
+	var <vector, <type, <all;
 	var <task;
 	var <>verbose = false;
 
@@ -21,6 +21,7 @@ T {
 	init {
 		vector = IdentityDictionary();
 		type = IdentityDictionary();
+		all = IdentityDictionary();
 		this.makeTask;
 	}
 
@@ -84,6 +85,11 @@ T {
 		// remake task to recover from sclang errors
 		this.makeTask;
 		task.start;
+	}
+	*restart { this.new(\default).restart }
+	restart {
+		this.init; // task is made twice - but ok...
+		this.start;
 	}
 	*stop { this.new(\default).stop }
 	stop { task.stop; }
