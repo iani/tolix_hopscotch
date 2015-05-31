@@ -13,7 +13,8 @@ T(\t2).pace = Pseq ([Pn(0.3, 1), Pn(0.1, 20)], inf);
 //:
 T(\t2).pace = Pseq ([4, Pn(0.3, 1), Pn(0.1, 10)], inf);
 //:
-T(\t2).pace  = 0.05;
+T(\t2).pace  = 0.25;
+T(\t2).pace  = 1.5;
 
 T(\t2).stop;
 //:
@@ -110,6 +111,13 @@ T(\t2).vax (\v1,
 	{
 		[0.3, 1].scramble * EnvGen.kr(Env.perc(0.01, 0.1, 0.2), doneAction: 2) *
 		[LFPulse, LFSaw, SinOsc].choose.ar(~e.abs * [1000, 150, 200].scramble + 200 min: 10000)
+	}
+)
+//:
+T(\t2).vax (\v1,
+	{
+		[0.3, 1].scramble * EnvGen.kr(Env.perc(0.01, 0.1, 0.2), doneAction: 2) *
+		[LFPulse, LFSaw, SinOsc].choose.ar(~e.abs * [50, 70, 80].scramble)
 	}
 )
 //:
